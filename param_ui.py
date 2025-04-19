@@ -50,15 +50,24 @@ def ui_gradient_boosting_params():
         "random_state": st.slider("乱数シード (random_state)", 0, 1000, 42)
     }
 
-
 def ui_mlp_params():
+    st.write("### 💡 MLP（多層パーセプトロン）のパラメータ設定")
+
+    num_layers = st.number_input("層の数", min_value=1, max_value=5, value=1, step=1)
+    
+    hidden_layer_sizes = []
+    for i in range(num_layers):
+        units = st.slider(f"第{i+1}層のユニット数", 5, 200, 10, key=f"layer_{i}")
+        hidden_layer_sizes.append(units)
+
     return {
-        "hidden_layer_sizes": (st.slider("隠れ層のユニット数", 5, 200, 10),),
+        "hidden_layer_sizes": tuple(hidden_layer_sizes),
         "activation": st.selectbox("活性化関数 (activation)", ["relu", "tanh", "logistic"], index=0),
         "solver": st.selectbox("最適化アルゴリズム (solver)", ["adam", "sgd", "lbfgs"], index=0),
         "max_iter": st.slider("最大イテレーション数 (max_iter)", 100, 1000, 500, step=50),
         "random_state": st.slider("乱数シード (random_state)", 0, 1000, 42)
     }
+
 
 
 def ui_xgboost_params():

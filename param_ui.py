@@ -83,7 +83,8 @@ def ui_lightgbm_params():
 
 
 def ui_naive_bayes_params():
-    return {"nb_type": st.write("ガウシアンナイーブベイズです．ハイパラメータはありません．")}
+    {"nb_type": st.write("ガウシアンナイーブベイズです．ハイパラメータはありません．")}
+    return None
 
 
 PRAMS_MACHINE = {

@@ -51,7 +51,7 @@ def ui_gradient_boosting_params():
     }
 
 def ui_mlp_params():
-    st.write("### 💡 MLP（多層パーセプトロン）のパラメータ設定")
+    st.write("MLP（多層パーセプトロン）のパラメータ設定")
 
     num_layers = st.number_input("層の数", min_value=1, max_value=5, value=1, step=1)
     
